@@ -1,0 +1,61 @@
+# Git
+.git
+.gitattributes
+
+# Secrets (never bake into layers)
+.env
+.env.*
+
+# Python / uv
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+.uv/
+*.egg-info/
+.eggs/
+dist/
+build/
+downloads/
+eggs/
+parts/
+sdist/
+var/
+wheels/
+
+# Test & linters
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# IDE / OS
+.idea/
+.vscode/
+.cursor/
+.DS_Store
+*.swp
+*.swo
+
+# Local state & logs
+.cache/
+*.log
+log/
+
+# This image is API-only; frontend is separate build
+frontend/
+
+# Cluster manifests not used inside the container
+k8s/
+
+# Docs / scraped HTML (not imported by app)
+docs/
+documents/
+
+# Training notebooks — runtime uses predict_model/model + predict/
+predict_model/train/

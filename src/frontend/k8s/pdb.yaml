@@ -1,0 +1,10 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: trader-ai-web-pdb
+  namespace: trader-ai-jjw
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: trader-ai-web

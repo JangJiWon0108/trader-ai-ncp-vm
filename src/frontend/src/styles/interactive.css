@@ -1,0 +1,251 @@
+/**
+ * Trader UI — 친화적 호버 / 포커스 (카드 · 테이블 · 리스트 · 차트 · 칩 등)
+ * 사이드바는 Sidebar.css 전용.
+ */
+
+/* ── Glass cards (모든 Card) ── */
+.trader-card {
+  transition:
+    transform 0.26s cubic-bezier(0.34, 1.15, 0.64, 1),
+    box-shadow 0.28s ease,
+    filter 0.22s ease;
+}
+.trader-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 4px 6px -1px rgba(15, 23, 42, 0.08),
+    0 22px 48px -14px rgba(79, 70, 229, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.55) inset,
+    0 0 0 1px rgba(129, 140, 248, 0.28);
+  filter: saturate(1.06);
+}
+
+/* 정렬 가능한 컬럼 헤더 */
+.trader-th-sortable {
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+.trader-th-sortable:hover {
+  background-color: rgba(99, 102, 241, 0.1);
+  color: #334155 !important;
+}
+.trader-th-sortable:focus-visible {
+  outline: 2px solid rgba(79, 70, 229, 0.55);
+  outline-offset: 2px;
+}
+
+/* ── 테이블 헤더 (가벼운 피드백) ── */
+.trader-scroll table thead tr th {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.trader-scroll table thead tr:hover th {
+  background-color: rgba(99, 102, 241, 0.06);
+  color: #475569;
+}
+
+/* ── 테이블 행 ── */
+.trader-scroll table tbody tr {
+  position: relative;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.22s ease;
+}
+.trader-scroll table tbody tr:hover {
+  background-color: rgba(99, 102, 241, 0.11);
+  box-shadow: inset 4px 0 0 0 rgba(79, 70, 229, 0.85);
+}
+.trader-scroll table tbody tr:active {
+  background-color: rgba(99, 102, 241, 0.14);
+}
+
+/* ── 대시보드 피드 카드 ── */
+.trader-feed-item {
+  cursor: default;
+  transition:
+    transform 0.24s cubic-bezier(0.34, 1.2, 0.64, 1),
+    box-shadow 0.26s ease,
+    border-color 0.22s ease,
+    filter 0.2s ease;
+}
+.trader-feed-item:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.02);
+  box-shadow:
+    0 14px 36px rgba(15, 23, 42, 0.1),
+    0 0 0 2px rgba(99, 102, 241, 0.22);
+}
+
+/* ── 스파크라인 / 미니 차트 ── */
+.trader-chart-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 8px;
+  border-radius: 12px;
+  transition:
+    transform 0.26s cubic-bezier(0.34, 1.35, 0.64, 1),
+    background 0.22s ease,
+    box-shadow 0.24s ease;
+}
+.trader-chart-wrap:hover {
+  transform: scale(1.1);
+  background: rgba(99, 102, 241, 0.1);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.18);
+}
+.trader-chart-wrap svg {
+  display: block;
+}
+
+/* ── 뱃지 (매수·매도·AI 등) ── */
+.trader-badge {
+  cursor: default;
+  transition:
+    transform 0.22s cubic-bezier(0.34, 1.25, 0.64, 1),
+    box-shadow 0.22s ease,
+    filter 0.2s ease;
+}
+.trader-badge:hover {
+  transform: scale(1.07) translateY(-1px);
+  filter: brightness(1.05);
+  box-shadow:
+    0 6px 16px rgba(15, 23, 42, 0.1),
+    0 1px 0 rgba(255, 255, 255, 0.65) inset;
+}
+
+/* ── 페이지 헤더 프리뷰 칩 ── */
+.trader-preview-pill {
+  cursor: default;
+  transition: transform 0.22s ease, box-shadow 0.24s ease, background 0.2s ease, border-color 0.2s ease;
+}
+.trader-preview-pill:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.22);
+  background: rgba(79, 70, 229, 0.16) !important;
+  border-color: rgba(79, 70, 229, 0.38) !important;
+}
+
+/* ── 자동매매 상태 pill ── */
+.trader-status-pill {
+  cursor: default;
+  transition: transform 0.22s ease, box-shadow 0.24s ease, filter 0.2s ease;
+}
+.trader-status-pill:hover {
+  transform: scale(1.04) translateY(-1px);
+  filter: brightness(1.06);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12) inset,
+    0 10px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* ── 정의 목록 행 (dl 내 한 줄) ── */
+.trader-kv-row {
+  padding: 8px 10px;
+  margin: 0 -6px;
+  border-radius: 10px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.trader-kv-row:hover {
+  background: rgba(99, 102, 241, 0.07);
+  transform: translateX(4px);
+}
+
+/* ── 카드 내 리스트 행 (규칙 · 봇 주문 등) ── */
+.trader-list-row {
+  transition: background 0.2s ease, transform 0.22s ease, border-radius 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 0;
+}
+.trader-list-row:hover {
+  background: rgba(99, 102, 241, 0.07);
+  transform: translateX(6px);
+  border-radius: 10px;
+  box-shadow: -6px 0 14px rgba(99, 102, 241, 0.08);
+}
+
+/* ── 경제 지표 트렌드 칩 ── */
+.trader-trend-chip {
+  display: inline-block;
+  padding: 5px 11px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
+}
+.trader-trend-chip:hover {
+  transform: scale(1.08);
+  background: rgba(148, 163, 184, 0.18);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+
+/* ── 공통 버튼 (탭·액션·필터) ── */
+.trader-btn {
+  transition:
+    filter 0.15s ease,
+    transform 0.15s cubic-bezier(0.34, 1.25, 0.64, 1),
+    opacity 0.15s ease;
+}
+.trader-btn:not(:disabled):hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+.trader-btn:not(:disabled):active {
+  transform: translateY(0) scale(0.97);
+  filter: brightness(0.96);
+  transition-duration: 0.07s;
+}
+.trader-btn:disabled {
+  cursor: default;
+}
+
+/* 스크롤바 */
+.trader-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(79, 70, 229, 0.4) transparent;
+}
+
+/* 접근성: 모션 줄이기 */
+@media (prefers-reduced-motion: reduce) {
+  .trader-scroll table thead tr th {
+    transition: none;
+  }
+  .trader-scroll table thead tr:hover th {
+    background-color: transparent;
+  }
+  .trader-th-sortable,
+  .trader-th-sortable:hover {
+    transition: none;
+  }
+  .trader-card,
+  .trader-card:hover,
+  .trader-scroll table tbody tr,
+  .trader-feed-item,
+  .trader-feed-item:hover,
+  .trader-chart-wrap,
+  .trader-chart-wrap:hover,
+  .trader-badge,
+  .trader-badge:hover,
+  .trader-preview-pill,
+  .trader-preview-pill:hover,
+  .trader-status-pill,
+  .trader-status-pill:hover,
+  .trader-kv-row,
+  .trader-kv-row:hover,
+  .trader-list-row,
+  .trader-list-row:hover,
+  .trader-trend-chip,
+  .trader-trend-chip:hover {
+    transition: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  .trader-card:hover {
+    transform: none;
+  }
+  .trader-feed-item:hover {
+    transform: none;
+  }
+  .trader-btn,
+  .trader-btn:not(:disabled):hover,
+  .trader-btn:not(:disabled):active {
+    transition: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

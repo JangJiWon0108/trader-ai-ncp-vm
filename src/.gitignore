@@ -1,0 +1,55 @@
+# 환경·비밀
+.env
+.env.*
+!.env.example
+deploy/cloudrun/env.yaml
+deploy/cloudrun/env.yaml.backup
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.venv/
+venv/
+ENV/
+
+# uv
+.uv/
+
+# 로컬 상태 (EOD 리포트 중복 방지 등)
+.cache/
+
+# 테스트·도구
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+.cursor_uvicorn.log
+
+# Kubernetes manifests (local, repo root only — frontend/k8s 는 별도)
+/k8s/

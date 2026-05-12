@@ -1,0 +1,12 @@
+[Unit]
+Description=Trader AI Frontend (Caddy)
+After=network.target
+
+[Service]
+# Caddy 바이너리로 Caddyfile 설정 읽어서 정적 파일 서빙
+ExecStart=/home/jwjang/.local/bin/caddy run --config /home/jwjang/work/trader-ai/config/Caddyfile
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

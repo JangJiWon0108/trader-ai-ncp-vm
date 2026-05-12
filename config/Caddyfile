@@ -1,0 +1,12 @@
+:51227 {
+    handle /api/* {
+        uri strip_prefix /api
+        reverse_proxy localhost:51225
+    }
+
+    handle {
+        root * /home/jwjang/work/trader-ai/src/frontend/dist
+        try_files {path} /index.html
+        file_server
+    }
+}

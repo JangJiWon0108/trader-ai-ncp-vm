@@ -1,0 +1,38 @@
+[project]
+name = "trader-ai"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "alembic>=1.18.4",
+    "asyncpg>=0.31.0",
+    "fastapi>=0.115",
+    "joblib>=1.5.3",
+    "numpy>=2.4.4",
+    "openai>=1.99.0",
+    "pandas>=3.0.2",
+    "psycopg2-binary>=2.9.12",
+    "pydantic>=2.13.3",
+    "pydantic-settings>=2.14.0",
+    "python-dotenv>=1.2.2",
+    "pytz>=2026.1.post1",
+    "requests>=2.33.1",
+    "schedule>=1.2.2",
+    "supabase>=2.29.0",
+    "uvicorn[standard]>=0.32",
+    "yfinance>=1.3.0",
+]
+
+[dependency-groups]
+ml = [
+    # Inference/training heavy deps (kept out of API image)
+    "scikit-learn>=1.8.0",
+    "tensorflow>=2.21.0",
+]
+dev = [
+    "jupyter>=1.1.1",
+    "matplotlib>=3.10.9",
+    "nbconvert>=7.17.1",
+]
+

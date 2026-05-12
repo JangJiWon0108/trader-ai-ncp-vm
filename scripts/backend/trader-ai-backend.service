@@ -1,0 +1,21 @@
+[Unit]
+# 서비스 설명
+Description=Trader AI Backend
+# 네트워크가 준비된 후 시작
+After=network.target
+
+[Service]
+# 실행 위치 (uvicorn이 app.main:app 을 찾는 기준 경로)
+WorkingDirectory=/home/jwjang/work/trader-ai/src
+# 환경변수 파일 경로
+EnvironmentFile=/home/jwjang/work/trader-ai/config/.env
+# 실행 명령어
+ExecStart=/home/jwjang/work/trader-ai/src/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 51225
+# 프로세스 죽으면 자동 재시작
+Restart=always
+# 재시작 대기 시간 (초)
+RestartSec=5
+
+[Install]
+# 로그인 없이도 부팅 시 자동 시작 (loginctl enable-linger 와 함께 동작)
+WantedBy=default.target

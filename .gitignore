@@ -1,0 +1,26 @@
+# 환경·시크릿
+config/.env
+config/.env.*
+
+# src 내 로그/캐시 (src/.gitignore가 커버 못하는 것)
+src/log/
+src/stock_scheduler.log
+src/.cache/
+src/predict_model/train/
+src/documents/
+src/nasdaq100.csv
+
+# GCP/Cloud Run 설정 (시크릿 포함)
+src/deploy/
+src/.gcloud/
+
+# Claude Code 도구 파일
+src/.claude/
+
+# 백업 파일
+src/**/*.bak
+src/*.bak
+
+# 테스트 전용
+src/test_apis.py
+src/test_kis_new_apis.py

@@ -1,0 +1,13 @@
+[Unit]
+Description=Trader AI ML Service
+After=network.target
+
+[Service]
+WorkingDirectory=/home/jwjang/work/trader-ai/src
+EnvironmentFile=/home/jwjang/work/trader-ai/config/.env
+ExecStart=/home/jwjang/work/trader-ai/src/.venv/bin/uvicorn ml_service.main:app --host 0.0.0.0 --port 51226
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

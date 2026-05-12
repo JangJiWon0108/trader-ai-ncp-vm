@@ -1,0 +1,26 @@
+# Dependencies & build output
+node_modules/
+dist/
+
+# Git & secrets
+.git
+.gitattributes
+.env
+.env.*
+
+# IDE / OS
+.idea/
+.vscode/
+.cursor/
+.DS_Store
+*.swp
+*.swo
+
+# Logs & caches
+*.log
+npm-debug.log*
+.eslintcache
+
+# k8s / design refs (이미지에 불필요)
+k8s/
+ui-design/
