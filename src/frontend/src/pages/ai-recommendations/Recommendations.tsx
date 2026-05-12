@@ -86,7 +86,7 @@ export default function Recommendations() {
   const aiPreds = useApi(fetchPredictions)
 
   const sentimentMin = cfg?.buy?.sentiment_min ?? 0.15
-  const accMin = cfg?.buy?.model_accuracy_min ?? 80
+  const accMin = cfg?.buy?.model_accuracy_min ?? 70
   const riseMin = cfg?.buy?.rise_prob_min ?? 3
 
   const combRows: CombRow[] = (combined.data?.results ?? []).map((r) => ({ ...r, _type: 'combined' as const }))
@@ -143,7 +143,7 @@ export default function Recommendations() {
                       { id: 'recommendation', label: '신호', tip: 'AI·기술·감성 통합 매수/매도/보유 판단' },
                       { id: 'rise_probability', label: '상승확률', right: true, tip: 'AI 모델 예측 상승 확률 (%)' },
                       { id: 'last_price', label: '현재가', right: true, tip: '가장 최근 실제 체결가 (USD)' },
-                      { id: 'predicted_price', label: '예측가', right: true, tip: 'LSTM 모델이 예측한 미래 가격 (USD)' },
+                      { id: 'predicted_price', label: '예측가', right: true, tip: '딥러닝 모델이 예측한 미래 가격 (USD)' },
                       { id: 'sentiment_score', label: '감성점수', right: true, tip: `뉴스 감성 점수 (-1~1) · ${sentimentMin}↑ 긍정 / -${sentimentMin}↓ 부정` },
                       { id: 'accuracy', label: '정확도', right: true, tip: '모델 백테스트 예측 정확도 (%)' },
                     ].map(({ id, label, right, tip }) => (
@@ -176,7 +176,7 @@ export default function Recommendations() {
       )}
 
       {tab === 'ai' && (
-        <Card title="AI 모델 예측" subtitle={`LSTM 모델 기반 · 정확도 ${accMin}% 이상 + 상승확률 ${riseMin}% 이상`}>
+        <Card title="AI 모델 예측" subtitle={`딥러닝 모델 기반 · 정확도 ${accMin}% 이상 + 상승확률 ${riseMin}% 이상`}>
           {aiPreds.loading && <div style={{ padding: 20, color: theme.onSurfaceVariant }}>데이터 로딩 중…</div>}
           {aiPreds.error && <div style={{ padding: 20, color: theme.negative }}>오류: {aiPreds.error}</div>}
           {!aiPreds.loading && predRows.length === 0 && <div style={{ padding: 20, color: theme.onSurfaceVariant }}>데이터 없음</div>}
@@ -187,11 +187,11 @@ export default function Recommendations() {
                   <tr>
                     {[
                       { id: 'stock', label: '종목명' },
-                      { id: 'recommendation', label: '신호', tip: 'LSTM 모델의 매수/매도/보유 판단' },
+                      { id: 'recommendation', label: '신호', tip: '딥러닝 모델의 매수/매도/보유 판단' },
                       { id: 'accuracy', label: '정확도', right: true, tip: '모델 백테스트 예측 정확도 (%)' },
                       { id: 'rise_probability', label: '상승확률', right: true, tip: 'AI 모델 예측 상승 확률 (%)' },
                       { id: 'last_price', label: '현재가', right: true, tip: '가장 최근 실제 체결가 (USD)' },
-                      { id: 'predicted_price', label: '예측가', right: true, tip: 'LSTM 모델이 예측한 미래 가격 (USD)' },
+                      { id: 'predicted_price', label: '예측가', right: true, tip: '딥러닝 모델이 예측한 미래 가격 (USD)' },
                     ].map(({ id, label, right, tip }) => (
                       <SortableTh key={id} colId={id} label={label} align={right ? 'right' : 'left'}
                         sortKey={pk} sortDir={pd} onSort={pr}

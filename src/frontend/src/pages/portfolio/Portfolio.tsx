@@ -123,11 +123,11 @@ export default function Portfolio() {
                 {[
                   { id: 'symbol', label: '티커', align: 'left' as const },
                   { id: 'name', label: '종목명', align: 'left' as const },
-                  { id: 'qty', label: '수량', align: 'right' as const, tip: '보유 주식 수 (주)' },
-                  { id: 'avgCost', label: '평단가', align: 'right' as const, tip: `매입 평균 단가 (${currency.unit})` },
-                  { id: 'price', label: '현재가', align: 'right' as const, tip: `현재 실시간 체결가 (${currency.unit})` },
-                  { id: 'evalAmt', label: '평가액', align: 'right' as const, tip: `현재가 × 수량 (${currency.unit})` },
-                  { id: 'pnlPct', label: '손익률', align: 'right' as const, tip: '(현재가 - 평단가) / 평단가 × 100' },
+                  { id: 'qty', label: '수량', align: 'right' as const, tip: '현재 내가 가지고 있는 주식 수' },
+                  { id: 'avgCost', label: '평단가', align: 'right' as const, tip: '주식을 살 때 들은 주당 평균 가격' },
+                  { id: 'price', label: '현재가', align: 'right' as const, tip: '지금 시장에서 거래되고 있는 실시간 가격' },
+                  { id: 'evalAmt', label: '평가액', align: 'right' as const, tip: '(현재가 × 수량)으로, 지금 당장 팔았을 때 내 손에 들어오는 총 금액' },
+                  { id: 'pnlPct', label: '손익률', align: 'right' as const, tip: '평단가와 현재가의 차이로 인해 발생한 이익이나 손해 (%)' },
                   { id: 'weight', label: '비중', align: 'right' as const, tip: '총 포트폴리오 대비 해당 종목 비율' },
                 ].map(({ id, label, align, tip }) => (
                   <SortableTh key={id} colId={id} label={label} align={align} sortKey={sortKey} sortDir={sortDir} onSort={requestSort}

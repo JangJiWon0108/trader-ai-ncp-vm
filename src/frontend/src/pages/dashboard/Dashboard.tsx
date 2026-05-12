@@ -734,7 +734,28 @@ export default function Dashboard() {
         </Card>
       </div>
 
-      <Card title="보유 종목 상세" subtitle="해외주식 잔고 · 나스닥/NYSE/AMEX">
+      <Card title={
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10 }}>
+          <span>보유 종목 상세</span>
+          <button
+            type="button"
+            onClick={() => nav('/portfolio')}
+            style={{
+              padding: '6px 10px',
+              borderRadius: 999,
+              border: '1px solid rgba(148, 163, 184, 0.26)',
+              background: 'rgba(148, 163, 184, 0.12)',
+              color: theme.onSurface,
+              fontSize: 12,
+              fontWeight: 900,
+              cursor: 'pointer',
+            }}
+            title="포트폴리오/잔고 페이지로 이동"
+          >
+            자세히
+          </button>
+        </div>
+      } subtitle="해외주식 잔고 · 나스닥/NYSE/AMEX">
         <div style={{ overflowX: 'auto' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse' }}>
             <thead>

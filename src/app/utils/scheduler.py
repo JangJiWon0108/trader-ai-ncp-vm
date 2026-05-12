@@ -866,16 +866,12 @@ class StockScheduler:
                     summary["success"] = False
                     continue
 
-                if settings.TRADING_BUY_PCT_OF_CASH > 0 and initial_cash_usd and initial_cash_usd > 0:
-                    buy_amount_usd = initial_cash_usd * settings.TRADING_BUY_PCT_OF_CASH
-                elif settings.TRADING_BUY_AMOUNT_USD > 0:
-                    buy_amount_usd = settings.TRADING_BUY_AMOUNT_USD
-                else:
-                    buy_amount_usd = 0
-                if buy_amount_usd > 0 and current_price > 0:
-                    quantity = max(1, int(buy_amount_usd // current_price))
-                else:
-                    quantity = settings.TRADING_BUY_QUANTITY
+                buy_amount_usd = (initial_cash_usd or 0) * settings.TRADING_BUY_PCT_OF_CASH
+                if buy_amount_usd <= 0 or current_price <= 0:
+                    logger.warning("%s(%s) 매수 금액 산출 불가 (seed=%.2f, pct=%.2f) — 건너뜀", stock_name, ticker, initial_cash_usd or 0, settings.TRADING_BUY_PCT_OF_CASH)
+                    summary["items"].append({"ticker": pure_ticker, "stock_name": stock_name, "outcome": "invalid_buy_amount"})
+                    continue
+                quantity = max(1, int(buy_amount_usd // current_price))
 
                 # 잔고 부족 사전 차단
                 estimated_cost = current_price * quantity

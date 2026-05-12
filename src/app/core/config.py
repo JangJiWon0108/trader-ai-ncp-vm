@@ -91,9 +91,7 @@ class Settings(BaseSettings):
     )
 
     # ── 매수/매도 주문 기본값 ──────────────────────────────────────────────────
-    TRADING_BUY_QUANTITY: int = Field(..., description="종목당 1회 매수 수량 (주) — TRADING_BUY_AMOUNT_USD > 0 이면 무시됨")
-    TRADING_BUY_AMOUNT_USD: float = Field(..., description="종목당 1회 매수 금액 (USD). 0 이하면 TRADING_BUY_QUANTITY 고정 수량 사용")
-    TRADING_BUY_PCT_OF_CASH: float = Field(0.0, description="가용 현금 대비 종목당 매수 비율 (0~1). 0 초과이면 TRADING_BUY_AMOUNT_USD 무시")
+    TRADING_BUY_PCT_OF_CASH: float = Field(0.10, description="초기 시드 대비 종목당 매수 비율 (0~1). 예: 0.10 = 10%")
     TRADING_MAX_POSITIONS: int = Field(..., description="최대 동시 보유 종목 수")
     TRADING_ORDER_TYPE: str = Field(..., description="주문 유형 (00: 지정가, 01: 시장가)")
 
